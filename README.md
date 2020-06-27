@@ -4,9 +4,10 @@ Projeto criado para estudar conceitos aprofundados da biblioteca ReactJS, concei
 ## Criando Projeto
 Lembrando que tem que ter o node.js e o npm instalados.
 
-```npx create-react-app new-project```
-Depois de fazer toda a criação do projeto, podemos rodar usando o comando
-```npm run start```
+``` npx create-react-app new-project ```
+
+# Depois de fazer toda a criação do projeto, podemos rodar usando o comando
+``` npm run start ```
 
 ## Tecnologias Usadas
 

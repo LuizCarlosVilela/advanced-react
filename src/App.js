@@ -1,34 +1,13 @@
-import React, { Components } from 'react';
+import React from 'react';
 
-import Twitter from './components/Twitter';
+import { ThemeContext, themes } from './Theme';
 
-class App extends Components() {
+import Card from './components/Card';
 
-  state = {
-    actived: true
-  }
-  onRemove = () => {
-    this.setState({
-      actived: false
-    })
-  }
-  
-  render() {
-
-    const posts = {
-      title: "hehe",
-      description: "ksksk"
-    }
-
-    return (
-      <div>
-        <button onClick={this.onRemove}>Remover</button>
-        {this.state.actived && (
-          <Twitter posts={posts}/>
-        )}
-      </div>
-    )
-  }
+export default function App(){
+  return (
+    <ThemeContext.Provider value={themes.primary}>
+      <Card />
+    </ThemeContext.Provider>
+  )
 }
-
-export default App;

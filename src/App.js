@@ -1,28 +1,42 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
-export default function App(){
+import Button from './Components/Button';
+import Calc from './Components/Calc';
 
-    const inputRef = useRef();
-    const count = useRef(1);
+export default function App() {
 
-    const [, setValue] = useState(false);
+
+    const [value, setValue] = useState(0);
+    const [min, setMin] = useState(0);
+    const [max, setMax] = useState(30);
 
     const handleClick = () => {
-        inputRef.current.focus()
-        console.log(inputRef.current)
+        setMin(10)
     }
+    
+    const handleCal = ({ target }) => {
+        const value = target.value
+        setValue(min + max + value);
+    } 
 
-    useEffect( () => {
-        setTimeout( () => {
-            count.current = 300
-            setValue(true);
-        }, 400)   
-    })
     return (
-        <>  
-            <h1>Valor de count: {count.current}</h1>
-            Foco: <input ref={inputRef}/>
-            <button onClick={handleClick}>Focar</button>
+        <>
+            <div>
+                <Button
+                    onClick={handleClick}
+                >
+                    Adicionar no carrinho
+                 </Button>
+            </div>
+            <div>
+                <h1>Valor Calculado: {value}</h1>
+                <Calc
+                    min={min}
+                    max={max}
+                    onChange={handleCal}
+                />
+            </div>
+
         </>
     )
 }

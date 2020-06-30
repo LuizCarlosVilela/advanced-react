@@ -1,13 +1,20 @@
 import React, { Fragment } from 'react';
 
 
-const store = ['', '', ''];
+const store = [{
+  type: "Roupa"
+},
+{
+  type: "Calçado"
+},
+{
+  type: "Camistea"
+}];
 
-function Column() {
+function Column({ type }) {
   return (
     <tr>
-      <td>Têni</td>
-      <td>Roupa</td>
+      <td>{type}</td>
     </tr>
   )
 }
@@ -16,7 +23,7 @@ export default function App() {
 
   const renderColumns = (element, key) => (
     <Fragment key={`column-${key}`}>
-      <Column />
+      <Column type={element.type}/>
     </Fragment>
   );
 

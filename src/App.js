@@ -1,37 +1,19 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-import Counter from './Counter';
+import PetShop from './PetShop';
 
-const Buttons = ({ increment, decrement, count }) => (
-  <div>
-    <h1>Valor Atual {count} </h1>
+export default function App(){
 
-    <div>
-      <button onClick={increment}> Adicionar 1 </button>
-    </div>
-    <div>
-      <button onClick={decrement}> Remover 1 </button>
-    </div>
-
-  </div>
-)
-
-class App extends Component {
-  render() {
+    const handleClick = () => {
+        console.log('Iniciando banco...')
+    }
     return (
-      <div>
-        <Counter render={({increment, decrement, count}) => (
-          <Buttons 
-            increment={increment}
-            decrement={decrement}
-            count={count}
-          />
-        )}>
-
-        </Counter>
-      </div>
+        <div>
+            <PetShop 
+                dogs={2}
+                customerName={'Luiz'}
+                onClick={handleClick}
+            />
+        </div>
     )
-  }
 }
-
-export default App;

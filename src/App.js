@@ -1,13 +1,28 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
-import { ThemeContext, themes } from './Theme';
 
-import Card from './components/Card';
+const store = ['', '', ''];
 
-export default function App(){
+function Column() {
   return (
-    <ThemeContext.Provider value={themes.primary}>
-      <Card />
-    </ThemeContext.Provider>
+    <tr>
+      <td>Têni</td>
+      <td>Roupa</td>
+    </tr>
+  )
+}
+
+export default function App() {
+
+  const renderColumns = (element, key) => (
+    <Fragment key={`column-${key}`}>
+      <Column />
+    </Fragment>
+  );
+
+  return (
+    <table>
+      {store.map(renderColumns)}
+    </table>
   )
 }
